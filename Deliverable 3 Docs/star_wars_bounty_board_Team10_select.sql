@@ -46,7 +46,7 @@ WHERE c.CompletionStatus = 'Pending';
 SELECT s.Name AS Syndicate, t.Name AS TargetName, h.Name AS HunterName
 FROM CONTRACT c
 JOIN SYNDICATE s ON s.SyndicateID = c.SyndicateID
-JOIN `CHARACTER` t ON tc.CharacterID = c.TargetID
+JOIN `CHARACTER` t ON t.CharacterID = c.TargetID
 LEFT JOIN `CHARACTER` h ON h.CharacterID = c.BountyHunterID
 WHERE c.CompletionStatus = 'Completed';
 
@@ -72,7 +72,7 @@ JOIN TARGET t ON t.TargetID = co.TargetID
 JOIN `CHARACTER` tc ON tc.CharacterID = co.TargetID
 LEFT JOIN PLANET p ON p.PlanetID = t.LastLocationPlanetID
 WHERE co.BountyHunterID IS NULL
-AND p.Name = 'Tatooine';
+AND p.Name = 'Hoth';
 
 -- List characters that are both a target and a bounty hunter
 SELECT c.Name
