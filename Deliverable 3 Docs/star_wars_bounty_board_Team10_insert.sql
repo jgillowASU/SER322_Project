@@ -32,8 +32,8 @@ INSERT INTO BOUNTY_HUNTER (BountyHunterID, Credits) VALUES (7, 140000);
 INSERT INTO BOUNTY_HUNTER (BountyHunterID, Credits) VALUES (9, 220000);
 INSERT INTO BOUNTY_HUNTER (BountyHunterID, Credits) VALUES (10, 90000);
 
-INSERT INTO CONTRACT (SyndicateID, TargetID, BountyHunterID, CompletionStatus) VALUES (1, 1, 4, 'Pending');
+INSERT INTO CONTRACT (SyndicateID, TargetID, BountyHunterID, CompletionStatus) VALUES (1, 1, 5, 'Pending');
 INSERT INTO CONTRACT (SyndicateID, TargetID, BountyHunterID, CompletionStatus) VALUES (4, 2, NULL, 'Pending');
 INSERT INTO CONTRACT (SyndicateID, TargetID, BountyHunterID, CompletionStatus) VALUES (2, 3, 9, 'Pending');
 INSERT INTO CONTRACT (SyndicateID, TargetID, BountyHunterID, CompletionStatus) VALUES (3, 6, 10, 'Completed');
-INSERT INTO CONTRACT (SyndicateID, TargetID, BountyHunterID, CompletionStatus) VALUES (1, 7, 5, 'Failed');
+INSERT INTO CONTRACT (SyndicateID, TargetID, BountyHunterID, CompletionStatus) VALUES (1, 8, 5, 'Failed');

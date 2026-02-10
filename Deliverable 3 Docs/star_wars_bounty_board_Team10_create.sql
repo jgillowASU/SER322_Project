@@ -1,4 +1,4 @@
-CREATE DATABASE BoutyHunterBoard;
+CREATE DATABASE BountyHunterBoard;
 USE BoutyHunterBoard;
 
 CREATE TABLE `CHARACTER` (
