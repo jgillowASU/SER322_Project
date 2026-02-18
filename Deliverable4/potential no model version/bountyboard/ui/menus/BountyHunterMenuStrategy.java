@@ -57,7 +57,7 @@ public class BountyHunterMenuStrategy implements MenuStrategy {
                 System.out.println();
                 service.printBountiesAssignedToHunter(hunterId);
 
-                int contractId = InputValidator.readInt("Enter ContractID to completed (0 to cancel): ");
+                int contractId = InputValidator.readInt("Enter ContractID to complete (0 to cancel): ");
 
                 if (contractId != 0) {
                     service.setCompleted(contractId, hunterId);
