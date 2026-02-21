@@ -3,6 +3,7 @@
 With a working directory at the same level as this README.md file, run the following to get started witht he app: 
 
 > javac -cp "lib/*;src" -d bin src/Main.java
+
 > java -cp "bin;lib/*" Main jdbc:mysql://localhost:3306/<databaseURL> <username> <password>
 
 Make sure to change the last three arguments to match your local system's database. 
