@@ -314,11 +314,32 @@ public class BountyBoardService {
     // Syndicate stuff ------
 
     public void createBounty(int syndicateId, int targetId) {
-        // TODO
+        String sql = "INSERT INTO CONTRACT (SyndicateID, TargetID) VALUES (?, ?)";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setInt(1, syndicateId);
+            ps.setInt(2, targetId);
+            int rows = ps.executeUpdate();
+            if (rows > 0) {
+                System.out.println("Bounty created successfully.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error creating bounty: " + e.getMessage());
+        }
     }
 
     public void deleteBountyIfNotCompleted(int contractId) {
-        // TODO
+        String sql = "DELETE FROM CONTRACT WHERE ContractID = ? AND CompletionStatus = 'Pending'";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setInt(1, contractId);
+            int rows = ps.executeUpdate();
+            if (rows > 0) {
+                System.out.println("Bounty deleted.");
+            } else {
+                System.out.println("No pending bounty found with that ContractID, or it was already completed/failed.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error deleting bounty: " + e.getMessage());
+        }
     }
 
     // --------
@@ -326,11 +347,35 @@ public class BountyBoardService {
 
     // Bounty hunter stuff --------------
     public void claimBounty(int contractId, int hunterId) {
-        // TODO
+        String sql = "UPDATE CONTRACT SET BountyHunterID = ? WHERE ContractID = ? AND BountyHunterID IS NULL";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setInt(1, hunterId);
+            ps.setInt(2, contractId);
+            int rows = ps.executeUpdate();
+            if (rows > 0) {
+                System.out.println("Bounty claimed.");
+            } else {
+                System.out.println("No unassigned contract found with that ContractID.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error claiming bounty: " + e.getMessage());
+        }
     }
 
     public void setCompleted(int contractId, int hunterId) {
-        // TODO
+        String sql = "UPDATE CONTRACT SET CompletionStatus = 'Completed' WHERE ContractID = ? AND BountyHunterID = ?";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setInt(1, contractId);
+            ps.setInt(2, hunterId);
+            int rows = ps.executeUpdate();
+            if (rows > 0) {
+                System.out.println("Contract marked completed.");
+            } else {
+                System.out.println("No contract found with that ContractID assigned to you.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error marking contract completed: " + e.getMessage());
+        }
     }
 
     // ----- helpers
