@@ -15,11 +15,10 @@ public class SyndicateMenuStrategy implements MenuStrategy {
 
     @Override
     public MenuStrategy execute() {
+        // print out a list of syndicates in the database to select from
         System.out.println();
-
-        System.out.println("Available Syndicates (ID | Name):");
-
         service.printSyndicates();
+        System.out.println();
 
         int syndicateId = InputValidator.readInt("Enter SyndicateID (0 to cancel): ");
 
@@ -33,6 +32,8 @@ public class SyndicateMenuStrategy implements MenuStrategy {
         }
 
         while (true) {
+            System.out.println();
+            service.welcomeSyndicate(syndicateId);
             displayMenu();
             int choice = InputValidator.readInt("> ");
 
@@ -44,8 +45,8 @@ public class SyndicateMenuStrategy implements MenuStrategy {
                 service.printBountyBoard();
             } else if (choice == 2) {
                 System.out.println();
-                System.out.println("Available Targets (ID | Name | Value):");
                 service.printTargets();
+                System.out.println();
 
                 int targetId = InputValidator.readInt("Enter TargetID (0 to cancel): ");
 
@@ -57,8 +58,9 @@ public class SyndicateMenuStrategy implements MenuStrategy {
                     }
                 }
             } else if (choice == 3) {
-                System.out.println();
                 service.printUnfinishedBounties();
+                System.out.println();
+                
                 int contractId = InputValidator.readInt("Enter ContractID to delete (0 to cancel): ");
 
                 if (contractId != 0) {

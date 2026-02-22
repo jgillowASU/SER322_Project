@@ -15,10 +15,10 @@ public class BountyHunterMenuStrategy implements MenuStrategy {
 
     @Override
     public MenuStrategy execute() {
+        // print out a list of hunters in the database to select from
         System.out.println();
-        System.out.println("Available Bounty Hunters | ID | Name | Credits |");
-
         service.printHunters();
+        System.out.println();
 
         int hunterId = InputValidator.readInt("Enter BountyHunterID (0 to cancel): ");
 
@@ -32,6 +32,8 @@ public class BountyHunterMenuStrategy implements MenuStrategy {
         }
 
         while (true) {
+            System.out.println();
+            service.welcomeHunter(hunterId);
             displayMenu();
 
             int choice = InputValidator.readInt("> ");
@@ -43,9 +45,8 @@ public class BountyHunterMenuStrategy implements MenuStrategy {
             if (choice == 1) {
                 service.printBountyBoard();
             } else if (choice == 2) {
-                System.out.println();
-
                 service.printUnassignedBounties();
+                System.out.println();
 
                 int contractId = InputValidator.readInt("Enter ContractID to claim (0 to cancel): ");
 
@@ -53,9 +54,8 @@ public class BountyHunterMenuStrategy implements MenuStrategy {
                     service.claimBounty(contractId, hunterId);
                 }
             } else if (choice == 3) {
-
-                System.out.println();
                 service.printBountiesAssignedToHunter(hunterId);
+                System.out.println();
 
                 int contractId = InputValidator.readInt("Enter ContractID to complete (0 to cancel): ");
 
