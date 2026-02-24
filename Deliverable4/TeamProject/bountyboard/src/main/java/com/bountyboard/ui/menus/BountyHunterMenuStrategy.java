@@ -18,7 +18,7 @@ public class BountyHunterMenuStrategy implements MenuStrategy {
         System.out.println();
         System.out.println("Available Bounty Hunters | ID | Name | Credits |");
 
-        service.printHunters();
+        service.printBountyHunters();
 
         int hunterId = InputValidator.readInt("Enter BountyHunterID (0 to cancel): ");
 
