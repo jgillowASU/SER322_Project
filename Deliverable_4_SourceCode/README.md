@@ -42,3 +42,9 @@ Make sure to change the last three arguments to match your local system's databa
         * printUnassignedBounties()
         * printUnfinishedBounties()
         * printBountiesAssignedToHunter()
+
+* Christopher Paquin
+    * Created a starter proposal draft which was further refined by the whole team.
+    * Created a ER diagram that was discussed and refined by everyone together.
+    * Created the select and insert SQL scripts.
+    * Helped refine deliverable 4 project structure did some project structural code.
