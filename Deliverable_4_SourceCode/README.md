@@ -22,6 +22,10 @@ Make sure to change the last three arguments to match your local system's databa
 - src: the actual java code and bountyboard package.
 - ~bin: per my compile files above, this is where the compiled code will live after you compile. I leave it out in the .gitignore so you have to compile for each machine and it doesn't clog up our repo.
 
+## Deliverable Video Link
+
+https://youtu.be/qK9hM5MMsGo
+
 ## Group Member Contributions
 
 - Jacob Gillow:
