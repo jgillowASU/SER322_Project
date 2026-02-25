@@ -1,5 +1,5 @@
 CREATE DATABASE BountyHunterBoard;
-USE BoutyHunterBoard;
+USE BountyHunterBoard;
 
 CREATE TABLE `CHARACTER` (
     CharacterID INT PRIMARY KEY AUTO_INCREMENT,
